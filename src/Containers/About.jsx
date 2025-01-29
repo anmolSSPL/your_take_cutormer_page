@@ -1,16 +1,16 @@
 import React from 'react';
-import Header from '../components/About/Header';
 import Hero from '../components/About/Hero';
 import Overview from '../components/About/Overview';
 import Features from '../components/About/Features';
 import Process from '../components/About/Process';
 import Testimonials from '../components/About/Testimonials';
 import ContactForm from '../components/About/ContactForm';
+import { AboutHeader } from '../components/About/AboutHeader';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <AboutHeader />
 
       <div className="mt-1">
         <Hero />

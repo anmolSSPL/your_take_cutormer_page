@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import openhamburger from "../../assets/openhamburger.svg";
 import closehamburger from "../../assets/closeHamburger.svg";
 
-const Header = () => {
+export const AboutHeader = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -57,4 +57,3 @@ const Header = () => {
   );
 };
 
-export default Header;
