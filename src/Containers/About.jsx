@@ -4,8 +4,9 @@ import Overview from '../components/About/Overview';
 import Features from '../components/About/Features';
 import Process from '../components/About/Process';
 import Testimonials from '../components/About/Testimonials';
-import ContactForm from '../components/About/ContactForm';
-import { AboutHeader } from '../components/About/AboutHeader';
+import ContactForm from '../components/About/ContactForm'; 
+import AboutHeader from "../components/About/AboutHeader"; 
+
 
 const About = () => {
   return (
