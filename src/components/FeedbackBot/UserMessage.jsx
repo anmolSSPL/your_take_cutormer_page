@@ -1,5 +1,6 @@
+// src/components/Chat/UserMessage.jsx
 import React from "react";
-import userIcon from "../../assets/user.svg"; // Imported user icon
+import userIcon from "../../assets/user.svg";
 
 const UserMessage = ({ message }) => {
   return (
