@@ -6,7 +6,7 @@ import Process from "../components/About/Process";
 import Testimonials from "../components/About/Testimonials";
 import ContactForm from "../components/About/ContactForm";
 import openhamburger from "../assets/openhamburger.svg";
-import closehamburger from "../assets/closeHamburger.svg";
+import closehamburger from "../assets/closehamburger.svg";
 import { useNavigate } from "react-router-dom";
 
 const About = () => {
