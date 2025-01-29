@@ -1,7 +1,7 @@
 import React from "react";
 import map from "../../assets/map.svg";
 import mail from "../../assets/mail.svg"; // Import for mail icon
-import rectangle from "../../assets/rectangle.svg"; // Import for rectangle icon
+import rectangle from "../../assets/Rectangle.svg"; // Import for rectangle icon
 import circle from "../../assets/circle.svg"; // Import for circle icon
 import whatsapp from "../../assets/whatsapp.svg"; // Import for WhatsApp icon
 import telegram from "../../assets/telegram.svg"; // Import for Telegram icon
