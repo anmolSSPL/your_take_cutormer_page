@@ -1,9 +1,11 @@
+// ChatContent.jsx
 import React, { useState } from 'react';
 import botIcon from "../../assets/bot-icon.svg";
 import feedbackarrow from '../../assets/feedbackarrow.svg';
 import BotMessage from './BotMessage';
 import UserMessage from './UserMessage';
 import SubmitButton from './SubmitButton';
+import ProgressSteps from './ProgressSteps';
 
 const questions = [
   {
@@ -11,7 +13,7 @@ const questions = [
     question: "1. How would you rate the quality of the food?",
     options: ['Excellent', 'Good', 'Average', 'Poor', 'Very Poor'],
     responses: {
-      Excellent: "Wow! We're thrilled to hear that! Your excellent feedback motivates us to keep delivering our best. If there’s anything more we can do for you, don’t hesitate to ask. Thanks for choosing us!",
+      Excellent: "Wow! We're thrilled to hear that! Your excellent feedback motivates us to keep delivering our best. If there's anything more we can do for you, don't hesitate to ask. Thanks for choosing us!",
       Good: "Great! We're glad you liked it. Your support keeps us motivated!",
       Average: "Thank you for your honest feedback. We're always working to improve our food quality.",
       Poor: "We're sorry to hear that. We'll work on improving our food quality.",
@@ -23,7 +25,7 @@ const questions = [
     question: "2. Would you recommend this restaurant to a friend or family member?",
     options: ['Yes', 'No'],
     responses: {
-      Yes: "That’s fantastic to hear! We’re so happy you’d recommend us to your friends and family. It means the world to us! Thank you for spreading the word, and we look forward to serving you again soon.",
+      Yes: "That's fantastic to hear! We're so happy you'd recommend us to your friends and family. It means the world to us! Thank you for spreading the word, and we look forward to serving you again soon.",
       No: "We appreciate your honesty. We'd love to know how we can improve."
     }
   },
@@ -47,8 +49,15 @@ const ChatContent = () => {
   ]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userMessage, setUserMessage] = useState("");
+  const [activeOption, setActiveOption] = useState(null);
+  const [completedQuestions, setCompletedQuestions] = useState([]);
 
   const handleOptionClick = (option) => {
+    setActiveOption(option);
+    
+    // Update completed questions array
+    setCompletedQuestions(prev => [...prev, currentQuestionIndex + 1]);
+
     const currentQuestion = questions[currentQuestionIndex];
     const botResponse =
       typeof currentQuestion.responses.default === "function"
@@ -91,15 +100,25 @@ const ChatContent = () => {
 
   return (
     <div className="px-4 sm:px-6 md:px-8 lg:px-12 py-6">
+      <ProgressSteps completedQuestions={completedQuestions} />
+
+      
       {messages.map((msg, index) =>
         msg.type === "bot" ? (
-          <BotMessage key={index} icon={<img src={botIcon} alt="Bot" className="w-6 h-6" />} title="Feedback Chatbot" question={msg.question}>
+          <BotMessage 
+            key={index} 
+            icon={<img src={botIcon} alt="Bot" className="w-6 h-6" />} 
+            title="Feedback Chatbot" 
+            question={msg.question}
+          >
             {msg.options ? (
               <div className="flex flex-wrap gap-2 mt-2">
                 {msg.options.map((option) => (
                   <button
                     key={option}
-                    className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-[#021F3F] text-xs sm:text-sm"
+                    className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border 
+                      ${activeOption === option ? 'bg-black text-white' : 'border-[#021F3F] text-xs sm:text-sm'} 
+                      focus:outline-none active:bg-blue-600 active:text-white cursor-pointer`}
                     onClick={() => handleOptionClick(option)}
                   >
                     {option}
@@ -107,11 +126,13 @@ const ChatContent = () => {
                 ))}
               </div>
             ) : (
-              <div className="bg-gray-50 rounded-lg p-4 text-xs sm:text-sm text-gray-600">{msg.message}</div>
+              <div className="bg-gray-50 rounded-lg p-4 text-xs sm:text-sm text-gray-600">
+                {msg.message}
+              </div>
             )}
           </BotMessage>
         ) : (
-          <UserMessage key={index} message={msg.message} icon={<img src={botIcon} alt="User" className="w-6 h-6 sm:w-8 sm:h-8" />} />
+          <UserMessage key={index} message={msg.message} />
         )
       )}
 
@@ -119,7 +140,6 @@ const ChatContent = () => {
         <SubmitButton />
       </div>
 
-      {/* Message Input */}
       <div className="mt-8 relative">
         <input
           type="text"

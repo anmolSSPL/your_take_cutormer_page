@@ -24,7 +24,9 @@ const About = () => {
         </div>
 
         <Process />
+        {/* <div className="ml-104"> */}
         <Testimonials />
+        {/* </div> */}
         <ContactForm />
       </div>
     </div>

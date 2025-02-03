@@ -1,4 +1,3 @@
-// src/components/FeedbackBot/RatingModal.jsx
 import React from 'react';
 import StarRating from './StarRating';
 
@@ -14,10 +13,12 @@ const RatingModal = ({
   onHoverChange
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 w-72">
-      <h3 className="text-center text-lg font-semibold mb-4">Rate your experience</h3>
+    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 w-[90vw] sm:w-80 md:w-96 max-w-lg mx-auto">
+      <h3 className="text-center text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+        Rate your experience
+      </h3>
       
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-3 sm:mb-4">
         <StarRating
           rating={rating}
           onRatingChange={onRatingChange}
@@ -30,7 +31,9 @@ const RatingModal = ({
         value={feedback}
         onChange={(e) => onFeedbackChange(e.target.value)}
         placeholder="Share your experience (optional)"
-        className="w-full p-2 border rounded-md mb-4 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2 sm:p-3 border rounded-md mb-3 sm:mb-4 h-20 sm:h-24 
+          text-sm sm:text-base resize-none focus:outline-none focus:ring-2 
+          focus:ring-blue-500"
       />
 
       <input
@@ -38,12 +41,15 @@ const RatingModal = ({
         value={userName}
         onChange={(e) => onUserNameChange(e.target.value)}
         placeholder="Your name (optional)"
-        className="w-full p-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-2 sm:p-3 border rounded-md mb-3 sm:mb-4 
+          text-sm sm:text-base focus:outline-none focus:ring-2 
+          focus:ring-blue-500"
       />
 
       <button
         onClick={onSubmit}
-        className={`w-full py-2 rounded-md transition-colors ${
+        className={`w-full py-2 sm:py-2.5 rounded-md text-sm sm:text-base 
+          transition-colors ${
           rating === 0
             ? 'bg-gray-300 cursor-not-allowed'
             : 'bg-[#021F3F] hover:bg-opacity-90 text-white'

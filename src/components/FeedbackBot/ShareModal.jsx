@@ -1,4 +1,3 @@
-// src/components/FeedbackBot/ShareModal.jsx
 import React from 'react';
 import ShareReddit from '../../assets/ShareReddit.svg';
 import ShareFacebook from '../../assets/ShareFacebook.svg';
@@ -16,17 +15,17 @@ const ShareModal = ({ onShare }) => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 w-72">
+    <div className="bg-white rounded-lg shadow-lg p-4 w-72 sm:w-80 md:w-96">
       <h3 className="text-center text-lg font-semibold mb-4">Share in your social media</h3>
       
-      <div className="flex justify-center items-center gap-4">
+      <div className="flex flex-wrap justify-center items-center gap-4">
         {socialPlatforms.map(platform => (
           <button 
             key={platform.id}
             onClick={() => onShare(platform.id)} 
             className="hover:opacity-80 transition-opacity"
           >
-            <img src={platform.icon} alt={platform.alt} className="w-10 h-10" />
+            <img src={platform.icon} alt={platform.alt} className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
           </button>
         ))}
       </div>

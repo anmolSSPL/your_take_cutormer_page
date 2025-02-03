@@ -20,7 +20,7 @@ const Overview = () => {
           {/* Left Column - Images & Stats */}
           <div className="relative pt-[474px]">
             {/* Bar Chart with Border */}
-            <div className="absolute right-0 top-0 w-[302px] h-[357px] rounded-lg border-[6px] border-white overflow-hidden shadow-lg bg-white">
+            <div className="absolute right-28 top-0 w-[302px] h-[357px] rounded-lg border-[6px] border-white overflow-hidden shadow-lg bg-white z-10">
               <img 
                 src={bar_chart} 
                 alt="Statistics"
@@ -28,8 +28,8 @@ const Overview = () => {
               />
             </div>
 
-            {/* Building Image */}
-            <div className="absolute left-0 top-[100px] w-[302px] h-[394px] overflow-hidden rounded-lg border-[6px] border-white shadow-lg">
+            {/* Building Image (Behind Bar Chart) */}
+            <div className="absolute left-0 top-[100px] w-[302px] h-[394px] overflow-hidden rounded-lg border-[6px] border-white shadow-lg z-0">
               <img 
                 src={building} 
                 alt="Company Building"
@@ -38,9 +38,9 @@ const Overview = () => {
             </div>
 
             {/* Stats - 90% & Happy User */}
-            <div className="absolute bottom-0 right-2 flex flex-col items-center mr-35 ">
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center ml-20">
               <span className="text-[60px] font-bold text-[#D1FF4C]">90%</span>
-              <span className="text-xl text-black mt-2 ">Happy User</span>
+              <span className="text-xl text-black mt-2">Happy User</span>
             </div>
           </div>
 
