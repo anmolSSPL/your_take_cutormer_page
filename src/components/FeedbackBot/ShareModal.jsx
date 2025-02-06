@@ -3,7 +3,7 @@ import ShareReddit from '../../assets/ShareReddit.svg';
 import ShareFacebook from '../../assets/ShareFacebook.svg';
 import ShareTwitter from '../../assets/ShareTwitter.svg';
 import ShareLinkedin from '../../assets/ShareLinkedin.svg';
-import ShareWhatsapp from '../../assets/ShareWhatsApp.svg';
+import ShareWhatsapp from '../../assets/ShareWhatsapp.svg';
 
 const ShareModal = ({ onShare }) => {
   const socialPlatforms = [
