@@ -1,6 +1,6 @@
 export const createUser = async (userData ) => { 
 
-    const baseUrl = "http://localhost:3037";
+    const baseUrl = "https://dev-api-your-take.airecrm.in";
     try {
       const response = await fetch(`${baseUrl}/api/user/public/create`, {
         method: "POST",

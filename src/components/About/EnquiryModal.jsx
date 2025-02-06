@@ -80,7 +80,7 @@ const EnquiryModal = ({ isOpen, onClose }) => {
       if (!response) {
         throw new Error("User creation failed");
       } else {
-        alert("User created successfully:", response);
+        alert("Your Data is Submitted Successfully", response);
 
         // Reset form after successful submission
         setFormData({
