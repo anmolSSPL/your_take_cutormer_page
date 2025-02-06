@@ -8,8 +8,8 @@ const App = () => {
     <Router>
       <main className="min-h-screen bg-[#F8FAFC]">
         <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/feedback" element={<FeedbackBot />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<FeedbackBot />} />
         </Routes>
       </main>
     </Router>

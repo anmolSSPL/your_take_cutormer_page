@@ -45,13 +45,13 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 p-4 sm:p-0">
               <button
                 className="text-white hover:text-[#D1FF4C] text-sm font-medium"
-                onClick={() => navigate("/feedback")}
+                onClick={() => navigate("/")}
               >
                 Form
               </button>
               <button
                 className="text-[#D1FF4C] text-sm font-medium relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-[#D1FF4C]"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/about")}
               >
                 About Us
               </button>

@@ -29,7 +29,7 @@ const Header = () => {
         <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
           <span
             className="text-white text-xs sm:text-sm md:text-base hover:text-[#D1FF4C] cursor-pointer transition-colors duration-200"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/about")}
           >
             About Us
           </span>
