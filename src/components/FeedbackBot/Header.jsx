@@ -1,5 +1,4 @@
 import React from "react";
-import botIcon from "../../assets/bot-icon.svg";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
