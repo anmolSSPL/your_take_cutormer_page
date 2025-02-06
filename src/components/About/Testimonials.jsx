@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import quotes from "../../assets/quotes.svg";
 import arrowup from "../../assets/Arrowup.svg";
-import arrowdown from "../../assets/Arrowdown.svg";
+import arrowdown from "../../assets/ArrowDown.svg";
 
 const testimonials = [
   {
@@ -9,7 +9,7 @@ const testimonials = [
     position: "Lead Intranet Technician",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     feedback:
-      "Omnis totam molestiae delectus nemo alias nesciunt harum et. Nobis dolorum excepturi quod vel. Sunt est qui ab non dolores repellat rem impedit dolores.",
+      "Omnis totam molestiae delectus nemo alias nesciunt harum et. Nobis dolorum excepturi quod velit quia.",
   },
   {
     name: "Ethel Johnson",
