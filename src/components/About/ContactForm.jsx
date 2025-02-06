@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="md:w-2/5 mt-8 md:mt-0">
+        <div className="md:w-3/5 mt-8 md:mt-0">
           {/* New Email Section */}
           <div className="flex items-center p-2 rounded-lg mb-5 bg-[#1e2233]">
             <div className="p-2 rounded-md flex items-center justify-center">
@@ -64,7 +64,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter Email *"
-              className="flex-grow px-3 py-4 bg-[#0E1629] text-white rounded-md outline-none border-none"
+              className="flex-grow px-8 py-4 bg-[#0E1629] text-white rounded-md  border-none"
             />
 
             <div className="bg-[#BFEA7C] p-2 rounded-md flex items-center justify-center cursor-pointer ml-2">
@@ -95,11 +95,13 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="md:w-1/2 h-36 bg-[#1e2233] flex items-center justify-center rounded">
+            {/* Updated Map Section */}
+            <div className=" h-60 bg-[#1e2233] flex items-center justify-center rounded">
               <img
                 src={map}
                 alt="Location Map"
-                className="w-full h-full object-cover rounded"
+                style={{ width: "380px", height: "252px" }} // Updated size
+                className="object-cover rounded"
               />
             </div>
           </div>

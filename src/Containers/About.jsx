@@ -10,7 +10,7 @@ import ContactForm from "../components/About/ContactForm";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={{ overflowX: "hidden" }}>
       <AboutHeader />
 
       <div className="mt-1">
