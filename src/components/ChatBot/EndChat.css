@@ -1,0 +1,40 @@
+.end-chat-container {
+  background-color: #fff; 
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 10px; 
+  flex-direction: column;
+}
+
+.end-chat-container p {
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #021f3f;
+}
+
+.end-chat-button {
+  background-color: #021f3f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 15.73px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #fff;
+}
+
+.end-chat-button:hover {
+  background-color: #4a148c;
+}
