@@ -38,3 +38,39 @@
 .end-chat-button:hover {
   background-color: #4a148c;
 }
+
+
+/* Responsive Design */
+@media (max-width: 768px) { /* Tablets */
+  .end-chat-container {
+    padding: 15px;
+    align-items: start;
+    text-align: left;
+  }
+  .end-chat-container p {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  .end-chat-button {
+    width: fit-content;
+    max-width: 250px; 
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) { /* Mobile Devices */
+  .end-chat-container {
+    padding: 10px;
+    width: 100%;
+  }
+  .end-chat-container p {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+  .end-chat-button {
+    font-size: 12px;
+    padding: 8px 15px; 
+    width: fit-content;
+  
+  }
+}
