@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import map from "../../assets/map.svg";
 import mail from "../../assets/mail.svg"; // Import for mail icon
 import rectangle from "../../assets/Rectangle.svg"; // Import for rectangle icon
@@ -9,7 +9,32 @@ import twitter from "../../assets/twitter.svg"; // Import for Twitter icon
 import facebook from "../../assets/facebook.svg"; // Import for Facebook icon
 import instagram from "../../assets/instagram.svg"; // Import for Instagram icon
 
-const Footer = () => {
+const Footer = ({ showToast }) => {
+  const [email, setEmail] = useState("");
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailSubmit = () => {
+    if (!email.trim()) {
+      showToast("Email is required.", "error");
+      return;
+    }
+    if (!validateEmail(email)) {
+      showToast("Please enter a valid email address.", "error");
+      return;
+    }
+    showToast("Email submitted successfully!", "success");
+    setEmail("");
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleEmailSubmit();
+    }
+  };
+
   return (
     <footer className="bg-[#0B142F] text-white">
       <div className="flex flex-col md:flex-row justify-between px-4 py-8">
@@ -18,33 +43,66 @@ const Footer = () => {
           <h2 className="text-2xl font-bold mb-4">Your Take</h2>
 
           <p className="text-md">
-            <span className="ml-4">Your Take is a powerful online platform designed to</span>
+            <span className="ml-4">
+              Your Take is a powerful online platform designed to
+            </span>
             <br />
-            <span className="ml-4">streamline the process of gathering and analyzing</span>
+            <span className="ml-4">
+              streamline the process of gathering and analyzing
+            </span>
             <br />
-            <span className="ml-4">customer feedback. Our intuitive form builder allows</span>
+            <span className="ml-4">
+              customer feedback. Our intuitive form builder allows
+            </span>
             <br />
-            <span className="ml-4">businesses of all sizes to create customized surveys and</span>
+            <span className="ml-4">
+              businesses of all sizes to create customized surveys and
+            </span>
             <br />
             <span className="ml-4">questionnaires in just a few clicks.</span>
           </p>
 
           <div className="flex gap-6 mt-8 flex-wrap">
-            <div className="w-13 h-13 flex items-center justify-center rounded mb-4 md:mb-0">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-13 h-13 flex items-center justify-center rounded mb-4 md:mb-0"
+            >
               <img src={facebook} alt="Facebook Icon" className="w-12 h-12" />
-            </div>
-            <div className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0">
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+            >
               <img src={instagram} alt="Instagram Icon" className="w-12 h-12" />
-            </div>
-            <div className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0">
+            </a>
+            <a
+              href="https://wa.me/yourphonenumber"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+            >
               <img src={whatsapp} alt="WhatsApp Icon" className="w-12 h-12" />
-            </div>
-            <div className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0">
+            </a>
+            <a
+              href="https://t.me/yourtelegramusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+            >
               <img src={telegram} alt="Telegram Icon" className="w-12 h-12" />
-            </div>
-            <div className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0">
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+            >
               <img src={twitter} alt="Twitter Icon" className="w-12 h-12" />
-            </div>
+            </a>
           </div>
         </div>
 
@@ -58,16 +116,24 @@ const Footer = () => {
 
             <div className="flex-grow px-3 text-white">
               <h1 className="text-2xl font-semibold">Enter Your Email</h1>
-              <p className="text-sm text-gray-400">Our Colleagues Will Contact You Soon</p>
+              <p className="text-sm text-gray-400">
+                Our Colleagues Will Contact You Soon
+              </p>
             </div>
 
             <input
               type="email"
               placeholder="Enter Email *"
               className="flex-grow px-8 py-4 bg-[#0E1629] text-white rounded-md  border-none"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onKeyPress={(e) => handleKeyPress(e)}
             />
 
-            <div className="bg-[#BFEA7C] p-2 rounded-md flex items-center justify-center cursor-pointer ml-2">
+            <div
+              className="bg-[#BFEA7C] p-2 rounded-md flex items-center justify-center cursor-pointer ml-2"
+              onClick={handleEmailSubmit}
+            >
               <span className="text-black">→</span>
             </div>
           </div>
@@ -87,11 +153,12 @@ const Footer = () => {
                   <p className="text-lg font-semibold">Our Address</p>
                 </div>
                 <p className="text-md mt-1 ml-7">
-                  Churchill Executive Tower Business
-                  <br />
-                  <span className="text-md">Bay, Delhi</span>
+                  Interface heights , off Malad Link Road, Malad West Mumbai
+                  400064
+                  {/* <br />
+                  <span className="text-md">Bay, Delhi</span> */}
                 </p>
-                <p className="text-md ml-7">Pn: 66770068</p>
+                {/* <p className="text-md ml-7">Pn: 66770068</p> */}
               </div>
             </div>
 
@@ -113,7 +180,8 @@ const Footer = () => {
         <div className="flex items-center justify-center py-3 bg-[#0c0f1f] text-sm font-poppins">
           <div className="flex-grow h-[1px] bg-gray-600"></div>
           <span className="px-4 text-gray-400 whitespace-nowrap">
-            © 2024 | All Rights Reserved | Powered by Your Take Design Department
+            © 2024 | All Rights Reserved | Powered by Your Take Design
+            Department
           </span>
           <div className="flex-grow h-[1px] bg-gray-600"></div>
         </div>

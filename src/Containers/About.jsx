@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 import EnquiryModal from "../components/About/EnquiryModal"; 
 import openhamburger from "../assets/openhamburger.svg";
 import closehamburger from "../assets/closehamburger.svg";
+import ToastNotification, {
+  showToast,
+} from "../components/ToastNotification/ToastNotification";
 
 const About = () => { 
   const navigate = useNavigate();
@@ -19,7 +22,10 @@ const About = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  return (
+  return ( 
+    <> 
+          <ToastNotification />
+
     <div className="min-h-screen bg-white" style={{ overflowX: "hidden" }}>
 
       <nav className="bg-[#0A1628] py-6 px-4 sm:px-8">
@@ -82,7 +88,7 @@ const About = () => {
         {/* <div className="ml-104"> */}
         <Testimonials />
         {/* </div> */}
-        <ContactForm /> 
+        <ContactForm showToast={showToast} /> 
 
         
       {/* Enquiry Modal */}
@@ -92,7 +98,8 @@ const About = () => {
       />
 
       </div>
-    </div>
+    </div> 
+    </>
   );
 };
 

@@ -6,6 +6,9 @@ import userIcon from "../../assets/user.svg";
 import "./ChatBot.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { EndChat } from "./EndChat";
+import ToastNotification, {
+  showToast,
+} from "../ToastNotification/ToastNotification";
 
 const ChatBot = () => {
   const questions = [
@@ -39,12 +42,37 @@ const ChatBot = () => {
     phone: "",
     gender: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false); // State to track submission
 
   const chatBoxRef = useRef(null);
 
+  const validateInput = () => {
+    if (currentQuestionIndex === 1) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(userInput)) {
+        showToast("Please enter a valid email address.", "error");
+        return false;
+      }
+    } else if (currentQuestionIndex === 2) {
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(userInput)) {
+        showToast("Please enter a valid 10-digit phone number.", "error");
+        return false;
+      }
+    } else if (currentQuestionIndex === 3) {
+      const validGenders = ["Male", "Female", "Other"];
+      if (!validGenders.includes(userInput.trim().toLowerCase())) {
+        showToast("Please enter Male, Female, or Other.", "error");
+        return false;
+      }
+    }
+    return true;
+  };
+
   const handleSendMessage = () => {
     if (userInput.trim() === "") return;
+    if (!validateInput()) return;
 
     const timestamp = new Date().toLocaleTimeString([], {
       hour: "2-digit",
@@ -133,6 +161,7 @@ const ChatBot = () => {
 
   return (
     <>
+      <ToastNotification />
       <div className="create-form-by-ai-container">
         <div className="progress-bar-container">
           <ProgressBar
@@ -189,7 +218,6 @@ const ChatBot = () => {
                 </div>
               ))}
             </div>
-
             <div className="input-box">
               <div className="input-box-input">
                 <input
@@ -204,8 +232,7 @@ const ChatBot = () => {
                 <button
                   className="send-btn"
                   disabled={isSubmitting}
-                  onClick={handleSendMessage} 
-
+                  onClick={handleSendMessage}
                 >
                   <img src={send} alt="Send" />
                 </button>

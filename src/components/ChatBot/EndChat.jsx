@@ -2,6 +2,7 @@ import React from "react";
 import "./EndChat.css";
 import { createUser } from "../../Helper/CreateUser";
 import PropTypes from "prop-types";
+import ToastNotification, { showToast } from "../ToastNotification/ToastNotification";
 
 export const EndChat = ({ responses, setResponses, isSubmitting, setIsSubmitting }) => { 
     console.log(responses);
@@ -24,7 +25,8 @@ export const EndChat = ({ responses, setResponses, isSubmitting, setIsSubmitting
       if (!response) {
         throw new Error("User creation failed");
       } else {
-        alert("Your Data is Submitted Successfully", response); 
+        // alert("Your Data is Submitted Successfully", response); 
+        showToast( "Your Data is Submitted Successfully" , "success");
         setIsSubmitting(true);
 
         // Reset form after successful submission
