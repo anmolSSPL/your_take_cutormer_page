@@ -61,9 +61,13 @@ const ChatBot = () => {
         return false;
       }
     } else if (currentQuestionIndex === 3) {
-      const validGenders = ["Male", "Female", "Other"];
-      if (!validGenders.includes(userInput.trim().toLowerCase())) {
-        showToast("Please enter Male, Female, or Other.", "error");
+      // Allow input that contains "Male", "Female", or "Other" anywhere in the text
+      const genderRegex = /(male|female|other)/i; // Case-insensitive match
+      if (!genderRegex.test(userInput)) {
+        showToast(
+          "Please enter Male, Female, or Other in your response.",
+          "error"
+        );
         return false;
       }
     }

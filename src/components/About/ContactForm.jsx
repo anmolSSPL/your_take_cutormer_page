@@ -88,7 +88,7 @@ const Footer = ({ showToast }) => {
               <img src={whatsapp} alt="WhatsApp Icon" className="w-12 h-12" />
             </a>
             <a
-              href="https://t.me/yourtelegramusername"
+              href="https://t.me/yourusername"
               target="_blank"
               rel="noopener noreferrer"
               className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
