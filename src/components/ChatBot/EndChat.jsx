@@ -2,13 +2,20 @@ import React from "react";
 import "./EndChat.css";
 import { createUser } from "../../Helper/CreateUser";
 import PropTypes from "prop-types";
-import ToastNotification, { showToast } from "../ToastNotification/ToastNotification";
+import ToastNotification, {
+  showToast,
+} from "../ToastNotification/ToastNotification";
 
-export const EndChat = ({ responses, setResponses, isSubmitting, setIsSubmitting }) => { 
-    console.log(responses);
+export const EndChat = ({
+  responses,
+  setResponses,
+  isSubmitting,
+  setIsSubmitting,
+}) => {
+  console.log(responses);
   // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (isSubmitting) return; // Prevent multiple submissions
 
     const userData = {
@@ -25,9 +32,13 @@ export const EndChat = ({ responses, setResponses, isSubmitting, setIsSubmitting
       if (!response) {
         throw new Error("User creation failed");
       } else {
-        // alert("Your Data is Submitted Successfully", response); 
-        showToast( "Your Data is Submitted Successfully" , "success");
+        // alert("Your Data is Submitted Successfully", response);
+        showToast("Your Data is Submitted Successfully", "success");
         setIsSubmitting(true);
+        // Refresh the page after a short delay
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000); // Refresh after 2 seconds
 
         // Reset form after successful submission
         setResponses({
@@ -64,8 +75,7 @@ export const EndChat = ({ responses, setResponses, isSubmitting, setIsSubmitting
 
 EndChat.propTypes = {
   responses: PropTypes.object,
-  setResponses: PropTypes.func, 
+  setResponses: PropTypes.func,
   isSubmitting: PropTypes.bool,
-  setIsSubmitting: PropTypes.func
+  setIsSubmitting: PropTypes.func,
 };
-
