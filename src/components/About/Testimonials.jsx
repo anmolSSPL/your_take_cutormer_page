@@ -35,7 +35,7 @@ const TestimonialSection = () => {
   };
 
   return (
-    <div className="bg-white p-4 sm:p-8 md:p-16">
+    <div className="bg-white p-4 sm:p-8 md:p-16 " style={{ width: "100%" }}>
       {/* Centered Heading and Paragraph at the Top */}
       <div className="text-center mb-8 sm:mb-12">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
@@ -76,15 +76,16 @@ const TestimonialSection = () => {
       </div>
 
       {/* Right Side: Blue Div with Testimonial Cards */}
-      <div className="w-full lg:w-2/3 bg-[#0A1428] rounded-lg p-4 sm:p-6 md:p-8 ml-4 sm:ml-24 md:ml-48 lg:ml-180 -mt-0 lg:-mt-64">
+      <div className="w-full lg:w-2/3 bg-[#0A1428] rounded-lg p-4 sm:p-6 md:p-8 ml-1 sm:ml-24 md:ml-48 lg:ml-180 -mt-0 lg:-mt-64">
+        {" "}
         <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
           {/* First Card */}
           <div
-           style={{
-            height: "220px ",
-            overflow: "hidden",
-            width: "100%",
-          }}
+            style={{
+              height: "220px ",
+              overflow: "hidden",
+              width: "100%",
+            }}
             className="w-full lg:w-[60%] bg-white shadow-md rounded-lg p-4 sm:p-5 lg:-translate-x-0 sm:lg:-translate-x-24 relative transition-transform duration-300"
           >
             <div className="flex items-center gap-2 sm:gap-4">

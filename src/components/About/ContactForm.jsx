@@ -8,6 +8,7 @@ import telegram from "../../assets/telegram.svg"; // Import for Telegram icon
 import twitter from "../../assets/twitter.svg"; // Import for Twitter icon
 import facebook from "../../assets/facebook.svg"; // Import for Facebook icon
 import instagram from "../../assets/instagram.svg"; // Import for Instagram icon
+import "./ContactForm.css";
 
 const Footer = ({ showToast }) => {
   const [email, setEmail] = useState("");
@@ -37,37 +38,27 @@ const Footer = ({ showToast }) => {
 
   return (
     <footer className="bg-[#0B142F] text-white">
-      <div className="flex flex-col md:flex-row justify-between px-4 py-8">
+      <div className="flex flex-col md:flex-row justify-between px-4 py-8 gap-4 md:gap-6 lg:gap-8">
         {/* Left Section */}
-        <div className="md:w-3/5">
-          <h2 className="text-2xl font-bold mb-4">Your Take</h2>
+        <div className="w-full md:w-3/5 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-left md:text-left">
+            Your Take
+          </h2>
 
-          <p className="text-md">
-            <span className="ml-4">
-              Your Take is a powerful online platform designed to
-            </span>
-            <br />
-            <span className="ml-4">
-              streamline the process of gathering and analyzing
-            </span>
-            <br />
-            <span className="ml-4">
-              customer feedback. Our intuitive form builder allows
-            </span>
-            <br />
-            <span className="ml-4">
-              businesses of all sizes to create customized surveys and
-            </span>
-            <br />
-            <span className="ml-4">questionnaires in just a few clicks.</span>
+          <p className="text-md md:text-lg text-left md:text-left">
+            Your Take is a powerful online platform designed to streamline the
+            process of gathering and analyzing customer feedback. Our intuitive
+            form builder allows businesses of all sizes to create customized
+            surveys and questionnaires in just a few clicks.
           </p>
 
-          <div className="flex gap-6 mt-8 flex-wrap">
+          {/* Social Icons */}
+          <div className="flex space-x-4 mt-4">
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-13 h-13 flex items-center justify-center rounded mb-4 md:mb-0"
+              className="w-14 h-14 flex items-center justify-center rounded-full hover:scale-110 transition-transform"
             >
               <img src={facebook} alt="Facebook Icon" className="w-12 h-12" />
             </a>
@@ -75,7 +66,7 @@ const Footer = ({ showToast }) => {
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+              className="w-14 h-14 flex items-center justify-center rounded-full hover:scale-110 transition-transform"
             >
               <img src={instagram} alt="Instagram Icon" className="w-12 h-12" />
             </a>
@@ -83,7 +74,7 @@ const Footer = ({ showToast }) => {
               href="https://wa.me/yourphonenumber"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+              className="w-14 h-14 flex items-center justify-center rounded-full hover:scale-110 transition-transform"
             >
               <img src={whatsapp} alt="WhatsApp Icon" className="w-12 h-12" />
             </a>
@@ -91,7 +82,7 @@ const Footer = ({ showToast }) => {
               href="https://t.me/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+              className="w-14 h-14 flex items-center justify-center rounded-full hover:scale-110 transition-transform"
             >
               <img src={telegram} alt="Telegram Icon" className="w-12 h-12" />
             </a>
@@ -99,7 +90,7 @@ const Footer = ({ showToast }) => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-13 h-12 flex items-center justify-center rounded mb-4 md:mb-0"
+              className="w-14 h-14 flex items-center justify-center rounded-full hover:scale-110 transition-transform"
             >
               <img src={twitter} alt="Twitter Icon" className="w-12 h-12" />
             </a>
@@ -109,32 +100,32 @@ const Footer = ({ showToast }) => {
         {/* Right Section */}
         <div className="md:w-3/5 mt-8 md:mt-0">
           {/* New Email Section */}
-          <div className="flex items-center p-2 rounded-lg mb-5 bg-[#1e2233]">
-            <div className="p-2 rounded-md flex items-center justify-center">
-              <img src={mail} alt="Mail Icon" className="w-8 h-8" />
+          <div className="email-container">
+            <div className="email-icon-container">
+              <img
+                src={mail}
+                alt="Mail Icon"
+                style={{ width: "32px", height: "32px" }}
+              />
+              <div className="email-text">
+                <h1>Enter Your Email</h1>
+                <p>Our Colleagues Will Contact You Soon</p>
+              </div>
             </div>
 
-            <div className="flex-grow px-3 text-white">
-              <h1 className="text-2xl font-semibold">Enter Your Email</h1>
-              <p className="text-sm text-gray-400">
-                Our Colleagues Will Contact You Soon
-              </p>
-            </div>
+            <div className="email-input-container">
+              <input
+                type="email"
+                placeholder="Enter Email *"
+                className="email-input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={(e) => handleKeyPress(e)}
+              />
 
-            <input
-              type="email"
-              placeholder="Enter Email *"
-              className="flex-grow px-8 py-4 bg-[#0E1629] text-white rounded-md  border-none"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onKeyPress={(e) => handleKeyPress(e)}
-            />
-
-            <div
-              className="bg-[#BFEA7C] p-2 rounded-md flex items-center justify-center cursor-pointer ml-2"
-              onClick={handleEmailSubmit}
-            >
-              <span className="text-black">→</span>
+              <div className="email-submit" onClick={handleEmailSubmit}>
+                <span>→</span>
+              </div>
             </div>
           </div>
 
@@ -155,7 +146,7 @@ const Footer = ({ showToast }) => {
                 <p className="text-md mt-1 ml-7">
                   Interface heights , off Malad Link Road, Malad West Mumbai
                   400064
-                  {/* <br />
+                  {/* 
                   <span className="text-md">Bay, Delhi</span> */}
                 </p>
                 {/* <p className="text-md ml-7">Pn: 66770068</p> */}
@@ -176,14 +167,16 @@ const Footer = ({ showToast }) => {
       </div>
 
       {/* Footer Bottom with dynamic line separators */}
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center py-3 bg-[#0c0f1f] text-sm font-poppins">
-          <div className="flex-grow h-[1px] bg-gray-600"></div>
-          <span className="px-4 text-gray-400 whitespace-nowrap">
+      <div className="container mx-auto px-4 ">
+        <div className="flex flex-col sm:flex-row items-center justify-center py-3 bg-[#0c0f1f] text-sm font-poppins text-center">
+          <div className="hidden sm:block flex-grow h-[1px] bg-gray-600"></div>
+
+          <span className="px-4 text-gray-400 whitespace-normal sm:whitespace-nowrap text-center">
             © 2024 | All Rights Reserved | Powered by Your Take Design
             Department
           </span>
-          <div className="flex-grow h-[1px] bg-gray-600"></div>
+
+          <div className="hidden sm:block flex-grow h-[1px] bg-gray-600"></div>
         </div>
       </div>
     </footer>

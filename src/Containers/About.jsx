@@ -76,12 +76,8 @@ const About = () => {
         <div className="mt-1">
           <Hero />
 
-          <div className="mt-1">
-            <Overview />
-            <div className="ml-4">
-              <Features />
-            </div>
-          </div>
+          <Overview />
+          <Features />
 
           <Process />
           {/* <div className="ml-104"> */}
